@@ -13,16 +13,16 @@ public class SupplierTest {
 		SupplierDAO supplierDAO = (SupplierDAO) context.getBean("supplierDAO");
 		Supplier supplier = (Supplier) context.getBean("supplier");
 		
-		// Create Operation
+		
 	    supplier.setId("SP8194");
 		supplier.setName("SPName8194");
 		supplier.setAddress("SPAddress8194");
 	    supplierDAO.saveOrUpdate(supplier);
 		System.out.println("NO of suppliers:"+supplierDAO.list().size());
 	   
-		// supplierDAO.delete("SP8194"); -->Delete Operation 
 		
-	    //Retrieve Operation
+		
+	    
 	    if(supplierDAO.get("ASDO")== null)
 		{
 			System.out.println("Supplier does not exist");

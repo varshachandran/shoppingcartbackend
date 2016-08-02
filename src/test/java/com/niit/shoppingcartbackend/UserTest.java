@@ -16,18 +16,16 @@ public class UserTest {
 		
 		
 	    user.setId("asd");
-		user.setName("ALEX");
-		user.setAddress("banglour");
+	    user.setName("vfgr");
 		user.setPassword("1234d");
-		user.setMail("aakdhn@gmail.com");
-	    user.setMobile("1234567891");
+		user.setIsadmin(true);
 	    userDAO.saveOrUpdate(user);
 		System.out.println("NO of users:"+userDAO.list().size());
-	   
-		
+	    
+
 		  
 	    
-	    if(userDAO.get("asd")== null)
+	    if(userDAO.get("ad")== null)
 		{
 			System.out.println("User does not exist");
 		}

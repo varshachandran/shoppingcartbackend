@@ -13,27 +13,34 @@ import org.springframework.stereotype.Component;
 public class User {
 	@Id
 	private String id;
-	@Column(name = "name")
 	private String name;
-	@Column(name = "address")
-	private String address;
-	@Column(name = "password")
-	private String password;
-
-	@Column(name = "mail")
-	private String mail;
 	
-	@Column(name = "mobile")
-	private String mobile;
-
-	
-
-	public String getMobile() {
-		return mobile;
+	public String getName() {
+		return name;
 	}
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Column(name = "password")
+	private String password;
+	
+
+	@Column(name = "isadmin")
+	private boolean isadmin;
+
+	
+	
+
+	
+
+	public boolean getIsadmin() {
+		return isadmin;
+	}
+
+	public void setIsadmin(boolean isadmin) {
+		this.isadmin = isadmin;
 	}
 
 	public String getPassword() {
@@ -44,13 +51,8 @@ public class User {
 		this.password = password;
 	}
 
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
+	
+	
 
 	public String getId() {
 		return id;
@@ -60,20 +62,8 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
+	
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
+	
 
 }

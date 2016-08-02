@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.event.spi.SaveOrUpdateEvent;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -23,6 +24,9 @@ public class UserDAOImpl implements UserDAO {
 		this.sessionFactory = sessionFactory;
 
 	}
+	
+	
+	
 
 	@Transactional
 	public User get(String id) {
@@ -59,6 +63,21 @@ public class UserDAOImpl implements UserDAO {
 		List<User> listUser = (List<User>) sessionFactory.getCurrentSession().createCriteria(User.class)
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return listUser;
+	}
+	
+	@Transactional
+	public boolean isValidUser(String id, String password, boolean isAdmin) {
+		String hql = "from User where id= '" + id + "' and " + " password ='" + password+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		@SuppressWarnings("unchecked")
+		List<User> list = (List<User>) query.list();
+		
+		if (list != null && !list.isEmpty()) {
+			return true;
+		}
+		
+		return false;
 	}
 
 }

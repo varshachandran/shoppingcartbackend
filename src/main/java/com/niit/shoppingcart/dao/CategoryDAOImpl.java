@@ -22,7 +22,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 
 
-	
+	@Transactional
 	public Category get(String id) {
 		String hql = "from Category where id=" + "'" + id + "'";
 		@SuppressWarnings("unchecked")

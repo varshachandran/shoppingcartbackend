@@ -15,7 +15,7 @@ public class ProductTest {
 		ProductDAO productDAO = (ProductDAO) context.getBean("productDAO");
 		Product product = (Product) context.getBean("product");
 		
-		// Create Operation
+		
 	    product.setId("PR02");
 		product.setName("ASUS");
 		product.setDescription("Laptop");
@@ -23,10 +23,8 @@ public class ProductTest {
 	    productDAO.saveOrUpdate(product);
 		System.out.println("NO of products:"+productDAO.list().size());
 	   
-		// productDAO.delete("PR02"); -->Delete Operation 
-		  
-	    //Retrieve Operation
-	    if(productDAO.get("PR01")== null)
+		
+	    if(productDAO.get("PR02")== null)
 		{
 			System.out.println("Product does not exist");
 		}

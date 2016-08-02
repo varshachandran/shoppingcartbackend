@@ -16,15 +16,15 @@ public class CategoryTest {
 		Category category = (Category) context.getBean("category");
 		
 		
-		category.setId("ASDO");
-		category.setName("CHJ01");
-		category.setDescription("HSD");
+		category.setId("ASD4");
+		category.setName("CHJ2");
+		category.setDescription("HSDE");
 	    categoryDAO.saveOrUpdate(category);
 		
 	  
 		
 	    
-	    if(categoryDAO.get("ASDO")== null)
+	    if(categoryDAO.get("ASD2")== null)
 		{
 			System.out.println("Category does not exist");
 		}

@@ -12,13 +12,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 import com.niit.shoppingcart.model.Category;
 import com.niit.shoppingcart.model.Product;
 import com.niit.shoppingcart.model.Supplier;
 import com.niit.shoppingcart.model.User;
+import com.niit.shoppingcart.model.UserDetails;
+
 
 @Configuration
 @ComponentScan("com.niit.shoppingcart")
@@ -52,6 +55,8 @@ public class ApplicationContextConfig {
 		   sessionBuilder.addAnnotatedClass(Supplier.class);
 		   sessionBuilder.addAnnotatedClass(Product.class);
 		   sessionBuilder.addAnnotatedClass(User.class);
+		   sessionBuilder.addAnnotatedClass(UserDetails.class);
+		   
 		   return sessionBuilder.buildSessionFactory();
 	   }
 	   
@@ -62,4 +67,6 @@ public class ApplicationContextConfig {
 		   return transactionManager;
 	  	   
 	   }
+	   
+	   
 }
